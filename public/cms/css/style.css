@@ -1,0 +1,14 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font: 13px Arial, Helvetica, sans-serif;
+    color: #000000;
+}
+
+.container {
+    width: 1000px;
+    margin: auto;
+}
