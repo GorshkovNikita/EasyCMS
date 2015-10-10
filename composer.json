@@ -10,7 +10,8 @@
         "barryvdh/laravel-ide-helper": "^2.1",
         "laravelcollective/html": "^5.1",
         "alexusmai/ruslug": "dev-master",
-        "doctrine/dbal": "^2.5"
+        "doctrine/dbal": "^2.5",
+        "tinymce/tinymce": "^4.2"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
