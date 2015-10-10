@@ -1,4 +1,4 @@
-@extends('cms.templates.main-template')
+@extends('cms.templates.template')
 
 @section('title')
     DashBoard

@@ -10,3 +10,8 @@ Route::group(['prefix' => 'admin'], function(){
         Route::controller('/', 'CMS\HomeController');
     });
 });
+
+Route::controllers([
+    'auth' => 'Auth\AuthController',
+    'password' => 'Auth\PasswordController'
+]);

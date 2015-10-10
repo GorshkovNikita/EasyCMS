@@ -4,6 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Contracts\Auth\Guard;
+use Auth;
 
 class Authenticate
 {
@@ -34,10 +35,10 @@ class Authenticate
      */
     public function handle($request, Closure $next)
     {
-        if ($request->is('admin')) {
-            return redirect('admin/login');
+        if (Auth::check() && Auth::user()->isAdmin()) {
+            return $next($request);
         }
         else
-            return $next($request);
+            return redirect('admin/login');
     }
 }

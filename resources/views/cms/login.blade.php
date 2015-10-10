@@ -1,4 +1,4 @@
-@extends('cms.templates.main-template')
+@extends('cms.templates.template')
 
 @section('header')
 
@@ -13,6 +13,7 @@
             <form method="POST" action="{{ url('auth/login') }}">
 
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                <input type="hidden" name="role" value="admin">
 
                 <div class="form-group">
                     <label>
@@ -28,6 +29,7 @@
 
                 <div class="form-group">
                     <input type="submit" value="Войти" class="btn btn-primary">
+                    <a href="#" class="btn btn-default">Регистрация</a>
                 </div>
 
             </form>
