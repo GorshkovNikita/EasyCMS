@@ -12,4 +12,9 @@ class HomeController extends Controller
     {
         return view('cms.dashboard');
     }
+
+    public function getLogin()
+    {
+        return view('cms.login');
+    }
 }

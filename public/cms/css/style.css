@@ -12,3 +12,16 @@ body {
     width: 1000px;
     margin: auto;
 }
+
+/* Login Page */
+
+.login-form {
+    margin-top: 100px;
+    text-align: center;
+}
+
+/* Footer */
+
+.footer-copy {
+    text-align: center;
+}

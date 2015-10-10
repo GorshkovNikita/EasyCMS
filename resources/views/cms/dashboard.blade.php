@@ -4,11 +4,17 @@
     DashBoard
 @stop
 
+@section('header')
+    @include('cms.templates.header')
+@stop
+
 @section('content')
-    <h1>TinyMCE Getting Started Guide</h1>
-    <form method="post">
-        <textarea id="mytextarea" class="form-control"></textarea>
-    </form>
+    <div class="container">
+        <h1>TinyMCE Getting Started Guide</h1>
+        <form method="post">
+            <textarea id="mytextarea" class="form-control"></textarea>
+        </form>
+    </div>
 
     <script type="text/javascript">
         tinymce.init({
@@ -25,4 +31,8 @@
             fontsize_formats: "8pt 10pt 13pt 15pt 17pt 24pt 36pt"
         });
     </script>
+@stop
+
+@section('footer')
+    @include('cms.templates.footer')
 @stop
