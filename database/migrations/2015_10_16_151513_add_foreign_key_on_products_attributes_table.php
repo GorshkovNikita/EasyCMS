@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddForeignKeyOnPostsTable extends Migration
+class AddForeignKeyOnProductsAttributesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,16 +12,16 @@ class AddForeignKeyOnPostsTable extends Migration
      */
     public function up()
     {
-        Schema::table('cms_posts', function (Blueprint $table) {
-            $table->foreign('author_id')
+        Schema::table('cms_products_attributes', function (Blueprint $table) {
+            $table->foreign('product_id')
                 ->references('id')
-                ->on('users')
+                ->on('cms_posts')
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
 
-            $table->foreign('parent_id')
+            $table->foreign('attribute_id')
                 ->references('id')
-                ->on('cms_posts')
+                ->on('cms_attributes')
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
         });
@@ -34,9 +34,9 @@ class AddForeignKeyOnPostsTable extends Migration
      */
     public function down()
     {
-        Schema::table('cms_posts', function (Blueprint $table) {
-            $table->dropForeign('cms_posts_author_id_foreign');
-            $table->dropForeign('cms_posts_parent_id_foreign');
+        Schema::table('cms_products_attributes', function (Blueprint $table) {
+            $table->dropForeign('cms_products_attributes_attribute_id_foreign');
+            $table->dropForeign('cms_products_attributes_product_id_foreign');
         });
     }
 }

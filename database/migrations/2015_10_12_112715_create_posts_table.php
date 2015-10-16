@@ -15,12 +15,16 @@ class CreatePostsTable extends Migration
         Schema::create('cms_posts', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('author_id');
-            $table->string('title')->unique();
-            $table->string('translit_title')->unique();
-            $table->longText('content');
-            $table->string('route')->unique();
+            $table->string('name')->unique();
+            $table->string('slug_name')->unique();
+            $table->unsignedInteger('parent_id')->nullable();
             $table->string('type');
             $table->string('status');
+            $table->string('route')->unique();
+            $table->longText('content')->default('');
+            $table->string('description')->default('');
+            $table->string('image')->default('');
+            $table->boolean('final')->default(false);
             $table->timestamps();
         });
     }

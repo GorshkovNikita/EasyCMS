@@ -13,8 +13,8 @@ class HomeController extends Controller
 {
     public function getIndex()
     {
-        $post = Post::whereId(1)->first();
-        $author = User::whereId($post->author_id)->first();
+        //$post = Post::whereId(1)->first();
+        //$author = User::whereId($post->author_id)->first();
         return view('cms.dashboard');
     }
 
