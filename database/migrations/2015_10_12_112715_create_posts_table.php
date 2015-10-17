@@ -24,6 +24,7 @@ class CreatePostsTable extends Migration
             $table->longText('content')->default('');
             $table->string('description')->default('');
             $table->string('image')->default('');
+            $table->string('category_type')->default('');
             $table->boolean('final')->default(false);
             $table->timestamps();
         });

@@ -8,7 +8,9 @@
 
 namespace App\EasyCMS\Models;
 
+use App\EasyCMS\CategoryType;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Builder;
 
 
 /**
@@ -42,6 +44,8 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Query\Builder|\App\EasyCMS\Models\Post whereFinal($value)
  * @method static \Illuminate\Database\Query\Builder|\App\EasyCMS\Models\Post whereCreatedAt($value)
  * @method static \Illuminate\Database\Query\Builder|\App\EasyCMS\Models\Post whereUpdatedAt($value)
+ * @property string $category_type
+ * @method static \Illuminate\Database\Query\Builder|\App\EasyCMS\Models\Post whereCategoryType($value)
  */
 class Post extends Model {
 
@@ -62,8 +66,21 @@ class Post extends Model {
         return $products;
     }
 
-    public static function categories() {
+    public static function categories1() {
         $categories = Post::where('type', 'category')->get();
+        return $categories;
+    }
+
+    public static function categories_by_type($type) {
+        $categories = Post::where('type', 'category')->where('category_type', $type)->get();
+        return $categories;
+    }
+
+    public static function final_categories_by_type($type) {
+        $categories = Post::where('type', 'category')
+            ->where('category_type', $type)
+            ->where('final', true)
+            ->get();
         return $categories;
     }
 
@@ -72,7 +89,15 @@ class Post extends Model {
         return $files;
     }
 
-    public function isPublished() {
+    public function is_published() {
         return $this->status == 'publish' ? true : false;
+    }
+
+    public function is_final() {
+        return $this->final ? true : false;
+    }
+
+    public function is_category() {
+        return $this->type == 'category' ? true : false;
     }
 }

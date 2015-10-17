@@ -13,4 +13,6 @@ abstract class Type {
     const PAGE = "page";
     const POST = "post";
     const FILE = "file";
+    const CATEGORY = "category";
+    const PRODUCT = "product";
 }

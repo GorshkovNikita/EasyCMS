@@ -68,7 +68,7 @@ class User extends Model implements AuthenticatableContract,
      *
      * @return bool
      */
-    public function isAdmin()
+    public function is_admin()
     {
         if ($this->role == 'admin')
             return true;
