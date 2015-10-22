@@ -35,7 +35,7 @@ class Authenticate
      */
     public function handle($request, Closure $next)
     {
-        if (Auth::check() && Auth::user()->isAdmin()) {
+        if (Auth::check() && Auth::user()->is_admin()) {
             return $next($request);
         }
         else
